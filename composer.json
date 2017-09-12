@@ -1,0 +1,31 @@
+{
+    "name": "kurtdcdg/semaphore-laravel",
+    "description": "A Laravel wrapper for Kickstart.ph Semaphore",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kurt Dacudag",
+            "email": "kurtperaldacudag@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.0",
+        "guzzlehttp/guzzle": "6.0.2",
+    },
+    "autoload": {
+        "psr-4": {
+            "Semaphore\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Semaphore\\SemaphoreServiceProvider"
+            ],
+            "aliases": {
+                "Semaphore": "Semaphore\\Semaphore"
+            }
+        }
+    }
+}
