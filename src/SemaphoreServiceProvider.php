@@ -12,12 +12,14 @@ class SemaphoreServiceProvider extends ServiceProvider {
 	*
 	* @return void
 	*/
-
 	public function register()
 	{
-		$this->app->bind('semaphore', function() {
-			$client = new Client(['base_uri' => 'http://api.semaphore.co/']);
-			return new SemaphoreAPI($client);
+		$this->app->singleton('semaphore', function() {
+			$client = new Client([
+				'base_uri' => 'http://api.semaphore.co/api/v4/'
+			]);
+
+			return new SemaphoreApi($client);
 		});
 	}
 }
