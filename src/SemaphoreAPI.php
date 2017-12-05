@@ -44,7 +44,7 @@ class SemaphoreApi {
 	public function message($messageId)
 	{
 		$params = [
-            'form_params' => [
+            'query' => [
 	            'apikey' =>  $this->apiKey,
             ]
         ];
@@ -63,7 +63,7 @@ class SemaphoreApi {
                 'page' => 1
             ]
 		];
-		
+
 		if (isset($options)) {
 			if (array_key_exists('limit', $options)) {
 				$params['query']['limit'] = $options['limit'];
@@ -93,7 +93,7 @@ class SemaphoreApi {
 				$params['query']['sendername'] = $options['sendername'];
 			}
 		}
-	    
+
 	    $response = $this->client->get('messages', $params);
 
         return $response->getBody();
@@ -106,9 +106,9 @@ class SemaphoreApi {
 	            'apikey' => $this->apiKey
 	        ]
 		];
-		
+
 		$response = $this->client->get('account', $params);
-		
+
 		return $response->getBody();
 	}
 
@@ -122,7 +122,7 @@ class SemaphoreApi {
                 'page' => 1
             ]
 		];
-		
+
 		if (isset($options)) {
 			if (array_key_exists('limit', $options)) {
 				$params['query']['limit'] = $options['limit'];
@@ -147,7 +147,7 @@ class SemaphoreApi {
 				'page' => 1
 			]
 		];
-		
+
 		if(isset($options)) {
 			if (array_key_exists('limit', $options)) {
 				$params['query']['limit'] = $options['limit'];
@@ -157,7 +157,7 @@ class SemaphoreApi {
 				$params['query']['page'] = $options['page'];
 			}
 		}
-	    
+
 		$response = $this->client->get('account/sendernames', $params);
 
 		return $response->getBody();
@@ -176,12 +176,12 @@ class SemaphoreApi {
 			if (array_key_exists('limit', $options)) {
 				$params['query']['limit'] = $options['limit'];
 			}
-	
+
 			if (array_key_exists('page', $options)) {
 				$params['query']['page'] = $options['page'];
 			}
 		}
-	    
+
 		$response = $this->client->get('account/users', $params);
 
 		return $response->getBody();
